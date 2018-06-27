@@ -22,7 +22,7 @@ def tweetmarkov(bot, trigger):
 	#api.update_status(mytweet)
 
 	# Get raw text as string.
-	f = open(os.getcwd()+"/all_of_bgtopics.txt", "r"
+	f = open(os.getcwd()+"/all_of_bgtopics.txt", "r")
 	text = f.read()
 
 	# Build the model.

@@ -13,7 +13,7 @@ def tootmarkov(bot, trigger):
         keys.close()
 
 	# Get raw text as string.
-        f = open("os.getcwd()+"/all_of_bgtopics.txt", "r")
+        f = open(os.getcwd()+"/all_of_bgtopics.txt", "r")
         text = f.read()
 
         # Build the model.
