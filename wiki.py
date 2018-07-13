@@ -10,4 +10,6 @@ def wk(bot, trigger):
 		result = "DISAMBIGULATOR: Did you mean one of these?"
 	        for option in e.options:
         	        result = result+" '"+str(option)+"'"
+	except:
+		result = "Wiki done a poo poo in its pantsies. Or you've searched for something that's not a thing."
 	bot.say(result)
