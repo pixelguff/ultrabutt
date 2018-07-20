@@ -5,7 +5,11 @@ import wikipedia as wik
 def wk(bot, trigger):
 	arg_list = trigger.split(" ", 1)
 	try:
-		result = wik.summary(str(arg_list[1]), sentences=1)
+		if arg_list[1].lower() == "random":
+			result = wik.summary(wik.random(), sentences=1)
+		else:
+			result = wik.summary(str(arg_list[1]), sentences=1)
+
 	except wik.exceptions.DisambiguationError as e:
 		result = "DISAMBIGULATOR: Did you mean one of these?"
 	        for option in e.options:
