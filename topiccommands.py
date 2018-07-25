@@ -70,11 +70,14 @@ def topiccommands(bot, trigger):
 	
 		if arg_list[1].lower() == "sexwee":
                         bot.action("chucks his muck")
+		
+		if arg_list[1].lower() == "sucks":
+                        bot.reply("Eat all of my arse-piece!")
 
 		if arg_list[1].lower() == "help":
-			bot.say('".UltraBot NO" will delete the most recent topic from Tumblr within 1 minute of posting.')
-			bot.say('".UltraBot del <postid from tumblr>" will delete the post from Tumblr with the given ID as long as you are in the ops group.')
-			bot.say('".UltraBot help". You just typed it. It is this.')
+			bot.say('".UltraButt NO" will delete the most recent topic from Tumblr within 1 minute of posting.')
+			bot.say('".UltraButt del <postid from tumblr>" will delete the post from Tumblr with the given ID as long as you are in the ops group.')
+			bot.say('".UltraButt help". You just typed it. It is this.')
 	except:
 		bot.reply("What?")
 	
