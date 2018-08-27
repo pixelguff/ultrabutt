@@ -6,6 +6,7 @@ import datetime
 import sys
 import os
 from string import *
+import random
 
 reload(sys);
 sys.setdefaultencoding("utf8")
@@ -72,7 +73,17 @@ def topiccommands(bot, trigger):
                         bot.action("chucks his muck")
 		
 		if arg_list[1].lower() == "sucks":
-                        bot.reply("Eat all of my arse-piece!")
+			insults = ["Eat all of my arse-piece!",
+				"Suck a nut.",
+				"I hate you.",
+				"You smell of bumhole.",
+				"Finger a goat, knobstretcher.",
+				"Lick my chutney locker.",
+				"Ur a twat.",
+				"Smooch my hoop.",
+				"And bollocks to you, dickcheese."]
+
+                        bot.reply(random.choice(insults))
 
 		if arg_list[1].lower() == "help":
 			bot.say('".UltraButt NO" will delete the most recent topic from Tumblr within 1 minute of posting.')
