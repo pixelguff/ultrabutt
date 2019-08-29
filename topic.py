@@ -5,6 +5,7 @@ import time
 import datetime
 import os
 import sys;
+import tweepy
 from mastodon import Mastodon
 
 reload(sys);
@@ -32,6 +33,23 @@ def topicthing(bot, event):
 	)
 
 
+	tkeys = open(os.getcwd()+"/SECRET_SAUCE/twitter.txt","r")
+
+        TCONSUMER_KEY = tkeys.readline().rstrip()
+        TCONSUMER_SECRET = tkeys.readline().rstrip()
+        TACCESS_KEY = tkeys.readline().rstrip()
+        TACCESS_SECRET = tkeys.readline().rstrip()
+
+        tkeys.close()
+
+        tauth = tweepy.OAuthHandler(TCONSUMER_KEY, TCONSUMER_SECRET)
+        tauth.set_access_token(TACCESS_KEY, TACCESS_SECRET)
+        tapi = tweepy.API(tauth)
+
+        #api.update_status("HELLO, THIS WAS POSTED FROM A SCRIPT")
+        #mytweet = trigger.split(' ', 1)[1]
+
+
         # Get Masto Keys
         keys = open(os.getcwd()+"/SECRET_SAUCE/masto.txt","r")
         client_id = keys.readline().rstrip()
@@ -49,11 +67,12 @@ def topicthing(bot, event):
 
 	result = client.create_text('bgtopics.tumblr.com', **params)	
 
-	mastodon.toot("[New Topic]\n\n" + event + "\n\n[#bibeogaem at irc.bibeogaem.zone]\n[See more at http://bgtopics.tumblr.com/]")
+	mastodon.toot("[New Topic]\n\n" + event + "\n\n[#bibeogaem at bibeogaem.zone]\n[See more at http://bgtopics.tumblr.com/]")
+	tapi.update_status("[New Topic in #bibeogaem]\n\n" + event)
 
 	try:
 		err = result['id']
-		bot.say("Topic tumbld at http://bgtopics.tumblr.com/ and tooted at https://bibeogaem.zone/")
+		bot.say("Topic tumbld at http://bgtopics.tumblr.com/, tooted at https://bibeogaem.zone/, and fuckin tweeted.")
 	except:
 		bot.say("For some reason, I couldn't post that. It's probably a duff key.")
 
