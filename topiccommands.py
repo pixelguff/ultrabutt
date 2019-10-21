@@ -1,11 +1,9 @@
 import sopel
-import oauth2
 import pytumblr
 import time
-import datetime
 import sys
 import os
-from string import *
+from string import split
 import random
 
 reload(sys)
@@ -65,13 +63,16 @@ def topiccommands(bot, trigger):
 
                 if 'id' in delres:
                     bot.reply(
-                        "OK, I think I deleted that one. Was it some cunt's password or something?")
+                        "OK, I think I deleted that one. Was it some cunt's "
+                        "password or something?")
                 else:
                     bot.reply(
-                        "I couldn't find " + str(arg_list[2]) + ". Either it's already gone, or you fucked the ID up.")
+                        "I couldn't find {}. Either it's already gone, or you "
+                        "fucked the ID up.".format(str(arg_list[2])))
             else:
                 bot.reply(
-                    "You're not on the ops list for deleting stuff, poopy pants.")
+                    "You're not on the ops list for deleting stuff,"
+                    " poopy pants.")
 
         if arg_list[1].lower() == "sexwee":
             bot.action("chucks his muck")
@@ -91,8 +92,12 @@ def topiccommands(bot, trigger):
 
         if arg_list[1].lower() == "help":
             bot.say(
-                '".UltraButt NO" will delete the most recent topic from Tumblr within 1 minute of posting.')
-            bot.say('".UltraButt del <postid from tumblr>" will delete the post from Tumblr with the given ID as long as you are in the ops group.')
+                '".UltraButt NO" will delete the most recent topic from Tumblr'
+                ' within 1 minute of posting.')
+            bot.say(
+                '".UltraButt del <postid from tumblr>" will delete the '
+                'post from Tumblr with the given ID as long as you are '
+                'in the ops group.')
             bot.say('".UltraButt help". You just typed it. It is this.')
-    except:
+    except Exception:
         bot.reply("What?")

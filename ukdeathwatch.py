@@ -5,7 +5,9 @@ import subprocess as sp
 @sopel.module.commands('ukdeathwatch')
 def ukdeathwatch(bot, trigger):
 
-    getpm = "curl https://www.gov.uk/government/ministers/prime-minister 2> /dev/null | grep Current | grep span | cut -d'>' -f3 | cut -d'<' -f1"
+    getpm = "curl https://www.gov.uk/government/ministers/prime-minister 2> "
+    "/dev/null | grep Current | grep span | "
+    "cut -d'>' -f3 | cut -d'<' -f1"
 
     process = sp.Popen(getpm, stdout=sp.PIPE, stderr=sp.PIPE, shell=True)
     pm, error = process.communicate()
@@ -16,7 +18,9 @@ def ukdeathwatch(bot, trigger):
 
     bot.say("Prime Minister: " + pm)
 
-    getqueen = "curl https://en.wikipedia.org/wiki/Elizabeth_II 2> /dev/null | grep '6 February 1952' | grep Reign | cut -d'>' -f9 | cut -d'<' -f1"
+    getqueen = "curl https://en.wikipedia.org/wiki/Elizabeth_II 2> "
+    "/dev/null | grep '6 February 1952' | grep Reign | cut -d'>' -f9 | "
+    "cut -d'<' -f1"
 
     process = sp.Popen(getqueen, stdout=sp.PIPE, stderr=sp.PIPE, shell=True)
     queen, error = process.communicate()

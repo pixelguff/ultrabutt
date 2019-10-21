@@ -1,5 +1,4 @@
 import sopel
-import oauth2
 import pytumblr
 import time
 import datetime
@@ -46,9 +45,6 @@ def topicthing(bot, event):
     tauth.set_access_token(TACCESS_KEY, TACCESS_SECRET)
     tapi = tweepy.API(tauth)
 
-    #api.update_status("HELLO, THIS WAS POSTED FROM A SCRIPT")
-    #mytweet = trigger.split(' ', 1)[1]
-
     # Get Masto Keys
     keys = open(os.getcwd() + "/SECRET_SAUCE/masto.txt", "r")
     client_id = keys.readline().rstrip()
@@ -68,11 +64,15 @@ def topicthing(bot, event):
     result = client.create_text('bgtopics.tumblr.com', **params)
 
     mastodon.toot("[New Topic]\n\n" + event
-                  + "\n\n[#bibeogaem at bibeogaem.zone]\n[See more at http://bgtopics.tumblr.com/]")
+                  + "\n\n[#bibeogaem at bibeogaem.zone]\n"
+                  "[See more at http://bgtopics.tumblr.com/]")
+
     tapi.update_status("[New Topic in #bibeogaem]\n\n" + event)
 
     try:
         err = result['id']
-        bot.say("Topic tumbld at http://bgtopics.tumblr.com/, tooted at https://bibeogaem.zone/, and fuckin tweeted.")
-    except:
-        bot.say("For some reason, I couldn't post that. It's probably a duff key.")
+        bot.say("Topic tumbld at http://bgtopics.tumblr.com/, tooted at"
+                " https://bibeogaem.zone/, and fuckin tweeted.")
+    except Exception:
+        bot.say("For some reason, I couldn't post that. "
+                "It's probably a duff key.")

@@ -12,5 +12,4 @@ def wash(bot, trigger):
     bot.say('+------------------+')
     bot.say('         ||         ')
     bot.say('         ||    @    ')
-    bot.say('___\/____||___\|/___')
-    #bot.say('> MINGE-BURGER <')
+    bot.say('___\\/____||___\\|/___')

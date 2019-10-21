@@ -1,6 +1,4 @@
 import sopel
-import time
-import sys
 import os
 from mastodon import Mastodon
 
@@ -25,6 +23,6 @@ def toot(bot, trigger):
         '+------------------+' + \
         '         ||         ' + \
         '         ||    @    ' + \
-        '___\/____||___\|/___'
+        '___\\/____||___\\|/___'
 
     mastodon.toot(mytoot)
