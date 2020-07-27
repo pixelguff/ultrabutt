@@ -1,12 +1,13 @@
-import sopel 
+import sopel
 from subprocess import *
 import string
-import time 
+import time
 from datetime import date
+
 
 @sopel.module.commands('fuckedreport')
 def fuckedreport(bot, trigger):
-	bot.say("Fucked Report: Oh God. Everything's on fire. Abandon ship!")	
+    bot.say("Fucked Report: Oh God. Everything's on fire. Abandon ship!")
 # get pound value
 #        raw_output = check_output(['curl','-s','https://www.xe.com/currencyconverter/convert/?From=GBP&amp;To=USD'])
 #	index = raw_output.find("1 GBP")
@@ -24,7 +25,7 @@ def fuckedreport(bot, trigger):
 # Thatcher
 #	if str(time.strftime("%d%m")) == "0104":
 #		bot.say("Is Thatcher still dead: No. Run.")
-#	else: 
+#	else:
 #		bot.say("Is Thatcher still dead: Yes.")
 #		bot.say("Farage: Cunt.")
 #		bot.say("Tories: Fucked it.")
